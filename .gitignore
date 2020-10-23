@@ -11,6 +11,11 @@
 # production
 /build
 
+# design
+*.sketch
+*.fig
+*.xd
+
 # misc
 .DS_Store
 .env.local
