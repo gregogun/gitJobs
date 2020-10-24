@@ -4,35 +4,22 @@ import useFetch from "../../hooks/useFetch";
 import "../main/JobBoard.css";
 
 const JobBoard = () => {
-  const { data } = useFetch(
-    "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json"
-  );
-  const [visible, setVisible] = useState(12);
-
-  const loadMore = num => {
-    if (num > 48) {
-      setVisible(num + 12);
-    }
-  };
+  const { jobs, isLoading, fetchData, loadMore } = useFetch();
 
   return (
-    <div className="JobBoard">
-      {data !== "" &&
-        data
-          .slice(0, visible)
-          .map((item) => (
-            <JobCard
-              className="JobCard"
-              created={item.created_at}
-              type={item.type}
-              title={item.title}
-              company={item.company}
-              location={item.location}
-              key={item.id}
-            />
+    <>
+      <div className="JobBoard">
+        {jobs &&
+          jobs.map((item) => (
+            <div className="JobCard" key={item.id}>
+              <JobCard {...item} />
+            </div>
           ))}
-      <button className="load-button" onClick={() => loadMore(visible)}>Load More</button>
-    </div>
+      </div>
+      <button className="load-button" onClick={loadMore}>
+      Load More
+    </button>
+    </>
   );
 };
 
