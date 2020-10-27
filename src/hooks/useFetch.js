@@ -5,71 +5,122 @@ const useFetch = () => {
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const url = `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?`;
+  const [ids, setIds] = useState({});
+  const [descState, setDescState] = useState("");
+  const [locState, setLocState] = useState("");
+  const [isFullState, setIsFullState] = useState("");
 
-  const fetchData = (query) => {
-    let urlCopy = url;
+  const getIds = () => {
+    // make a dictionary of ids -> indexes in data
+    let ids = {};
+    jobs.forEach((info, i) => {
+      ids[info["id"]] = i;
+    });
+    setIds(ids);
+    console.log(ids);
+  };
 
-    if (query) {
-      const { description, location, isFullTimeOnly, pageNum } = query;
+  let urlCopy = url;
+  let desc = "";
+  let loc = "";
+  let isFull = "";
 
-      if (description) urlCopy += `description=${description}&`;
-      if (location) urlCopy += `location=${location}&`;
-      // check below line to see if this is correct
-      if (isFullTimeOnly) urlCopy += `full_time=${description}&`;
+  const fetchData = () => {
+    urlCopy += `description=${desc}&location=${loc}&full_time=${isFull}&page=${page}`;
 
-      urlCopy += `page=${pageNum}&`;
+    console.log("fetchData is here", urlCopy);
 
-      setIsLoading(true);
+    setIsLoading(true);
 
-      const getJobs = async () => {
-        const response = await fetch(urlCopy);
+    const getJobs = async () => {
+      const response = await fetch(urlCopy);
 
-        if (response.status !== 200) {
-          throw new Error("cannot fetch data");
-        }
+      if (response.status !== 200) {
+        throw new Error("cannot fetch data");
+      }
 
-        const data = await response.json();
+      const data = await response.json();
 
-        return data;
-      };
+      return data;
+    };
 
-      getJobs()
-      .then((data) => {
-        setIsLoading(false);
-        setJobs(data);
-      });
-    } else {
-      urlCopy = `${urlCopy}page=${page}`;
-      setIsLoading(true);
+    getJobs().then((data) => {
+      setIsLoading(false);
+      setJobs(data);
+    });
+  };
 
-      const getJobs = async () => {
-        const response = await fetch(urlCopy);
+  const queryJobs = (query) => {
+    const { description, location, isFullTimeOnly } = query;
 
-        if (response.status !== 200) {
-          throw new Error("cannot fetch data");
-        }
+    desc = description;
+    loc = location;
+    isFull = isFullTimeOnly;
 
-        const data = await response.json();
+    // console.log(desc);
 
-        return data;
-      };
+    setDescState(desc);
+    setLocState(loc);
+    setIsFullState(isFull);
+    setPage(1);
+    urlCopy += `description=${desc}&location=${loc}&full_time=${isFull}&page=${1}`;
 
-      getJobs().then((data) => {
-        setIsLoading(false);
-        setJobs(jobs.concat(data));
-        console.log('new jobs were added', data);
-      });
+    console.log("queryJobs is here", urlCopy);
 
-    }
+    setIsLoading(true);
+
+    const getJobs = async () => {
+      const response = await fetch(urlCopy);
+
+      if (response.status !== 200) {
+        throw new Error("cannot fetch data");
+      }
+
+      const data = await response.json();
+
+      return data;
+    };
+
+    getJobs().then((data) => {
+      setIsLoading(false);
+      setJobs(data);
+    });
   };
 
   const loadMore = () => {
-    setPage(page + 1);
+    const nextPage = page + 1;
+    setPage(nextPage);
+
+    urlCopy += `description=${descState}&location=${locState}&full_time=${isFullState}&page=${nextPage}`;
+
+    console.log("loadMore is here", urlCopy);
+
+    const getJobs = async () => {
+      const response = await fetch(urlCopy);
+
+      if (response.status !== 200) {
+        throw new Error("cannot fetch data");
+      }
+
+      const data = await response.json();
+
+      return data;
+    };
+
+    getJobs().then((data) => {
+      setIsLoading(false);
+      if (data.length > 0) {
+        setJobs(jobs.concat(data));
+      }
+      // console.log("new jobs were added", data);
+    });
   };
 
-  useEffect(fetchData, [page]);
+  useEffect(fetchData, []);
 
-  return { jobs, isLoading, fetchData, loadMore };
+  useEffect(getIds, [jobs]);
+
+  return { jobs, ids, isLoading, queryJobs, fetchData, loadMore };
 };
 
 export default useFetch;
