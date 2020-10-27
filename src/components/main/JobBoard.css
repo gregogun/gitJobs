@@ -1,12 +1,12 @@
 .JobBoard {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .load-button {
-    cursor: pointer;
-    flex-basis: 20%;
-    height: 50px;
-    margin: 32px auto;
-    
+  cursor: pointer;
+  flex-basis: 20%;
+  height: 32px;
+  width: 120px;
+  margin: 16px auto;
 }
