@@ -8,9 +8,40 @@ import "../main/JobBoard.css";
 const JobBoard = () => {
   const { jobs, ids, isLoading, queryJobs, loadMore } = useFetch();
   const [modal, setModal] = useState(false);
+  const [jobIndex, setJobIndex] = useState();
 
   const handleClick = () => {
     setModal(true);
+  };
+
+  const RenderModal = () => {
+    const handleShow = (id) => {
+      const size = Object.keys(ids).length;
+      if (typeof id === "number") {
+        setJobIndex(id + 1 < size ? id + 1 : id);
+      } else {
+        setModal(false);
+        setJobIndex(ids[id]);
+      }
+    };
+
+    if (modal) {
+      if (jobs) {
+        const jobsId = jobs.filter((job) => job.id === jobIndex);
+        console.log(jobsId[0]);
+        return (
+          <div>
+            {
+              <JobDetails
+                index={jobIndex}
+                handleShow={handleShow}
+                job={jobsId[0]}
+              />
+            }
+          </div>
+        );
+      }
+    }
   };
 
   const RenderBoard = () => {
@@ -34,7 +65,13 @@ const JobBoard = () => {
           {jobs &&
             jobs.map((item) => (
               <div className="JobCard" key={item.id}>
-                <JobCard {...item} handleClick={handleClick} />
+                <JobCard
+                  {...item}
+                  handleClick={handleClick}
+                  RenderModal={RenderModal}
+                  jobIndex={jobIndex}
+                  setJobIndex={setJobIndex}
+                />
               </div>
             ))}
         </div>
@@ -47,13 +84,7 @@ const JobBoard = () => {
     );
   };
 
-  // console.log(pageNum);
-
-  return modal ? (
-    <JobDetails jobs={jobs} setModal={setModal} />
-  ) : (
-    <RenderBoard />
-  );
+  return modal ? <RenderModal /> : <RenderBoard />;
 };
 
 export default JobBoard;

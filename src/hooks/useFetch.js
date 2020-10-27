@@ -9,6 +9,7 @@ const useFetch = () => {
   const [descState, setDescState] = useState("");
   const [locState, setLocState] = useState("");
   const [isFullState, setIsFullState] = useState("");
+  // const [trigger, setTrigger] = useState(false);
 
   const getIds = () => {
     // make a dictionary of ids -> indexes in data
@@ -44,10 +45,12 @@ const useFetch = () => {
       return data;
     };
 
-    getJobs().then((data) => {
-      setIsLoading(false);
-      setJobs(data);
-    });
+    getJobs()
+      .then((data) => {
+        setIsLoading(false);
+        setJobs(data);
+      }, getIds)
+      .catch((e) => console.log(e));
   };
 
   const queryJobs = (query) => {
@@ -81,10 +84,12 @@ const useFetch = () => {
       return data;
     };
 
-    getJobs().then((data) => {
-      setIsLoading(false);
-      setJobs(data);
-    });
+    getJobs()
+      .then((data) => {
+        setIsLoading(false);
+        setJobs(data);
+      }, getIds)
+      .catch((e) => console.log(e));
   };
 
   const loadMore = () => {
@@ -107,18 +112,20 @@ const useFetch = () => {
       return data;
     };
 
-    getJobs().then((data) => {
-      setIsLoading(false);
-      if (data.length > 0) {
-        setJobs(jobs.concat(data));
-      }
-      // console.log("new jobs were added", data);
-    });
+    getJobs()
+      .then((data) => {
+        setIsLoading(false);
+        if (data.length > 0) {
+          setJobs(jobs.concat(data));
+        }
+        // console.log("new jobs were added", data);
+      }, getIds)
+      .catch((e) => console.log(e));
   };
 
   useEffect(fetchData, []);
 
-  useEffect(getIds, [jobs]);
+  // useEffect(getIds, [trigger]);
 
   return { jobs, ids, isLoading, queryJobs, fetchData, loadMore };
 };

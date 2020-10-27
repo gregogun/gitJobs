@@ -9,13 +9,20 @@ const JobCard = ({
   company,
   location,
   handleClick,
+  jobIndex,
+  setJobIndex,
 }) => {
+  const handleOpen = () => {
+    handleClick();
+    setJobIndex(id);
+  };
+
   return (
     <>
       <p>{created}</p>
       <p>{type}</p>
       <p
-        onClick={handleClick}
+        onClick={handleOpen}
         style={{ color: "lightseagreen", cursor: "pointer" }}
       >
         {title}
