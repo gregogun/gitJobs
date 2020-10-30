@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display&family=Roboto:wght@300&display=swap");
+/*AA large */
+/*AA large */
+/* AA */
+/* AAA */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  color: #303030;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f6f8;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+header {
+  margin: auto;
+  padding: 24px 40px;
+  width: 100%;
+  height: 100px;
+  color: #fdfdfd;
+  background-color: #303030;
+}
+
+.App {
+  text-align: center;
+  margin: auto;
+  width: 100vw;
+}
+
+h1 {
+  margin-left: 120px;
+  width: 128px;
+  text-align: left;
+}
+
+main {
+  margin-bottom: 50px;
+}
+
+footer {
+  height: 50px;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
+  color: #fdfdfd;
+  background-color: #303030;
+}
+
+.Main {
+  margin: auto;
+  width: 100%;
+}
+
+.JobBoard {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 90%;
+}
+
+.load-button {
+  cursor: pointer;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  height: 32px;
+  width: 120px;
+  margin: 16px auto;
+}
+
+h2 {
+  margin: auto;
+}
+
+.outer-card {
+  margin: 16px auto;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  width: 470px;
+  height: 360px;
+}
+
+.showing-jobs {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 16px;
+}
+
+.JobCard {
+  position: relative;
+  margin: 32px auto;
+  background-color: white;
+  width: 500px;
+  height: 320px;
+  border-radius: 20px;
+  line-height: 2rem;
+  -webkit-box-shadow: 10px 9px 10px -6px rgba(166, 166, 166, 0.08);
+          box-shadow: 10px 9px 10px -6px rgba(166, 166, 166, 0.08);
+  list-style: none;
+}
+
+.created-type {
+  width: 200px;
+  height: 40px;
+  margin: 16px auto;
+  text-align: center;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.created-type-divider {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #5c5c5c;
+  font-size: 1rem;
+}
+
+.job-title {
+  text-decoration: none;
+  color: #303030;
+  margin: 16px auto;
+  width: 450px;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.job-title::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.job-location {
+  margin: 16px auto;
+  width: 300px;
+  color: #f31e1e;
+  font-weight: 700;
+}
+
+.job-company {
+  margin: 16px auto;
+  width: 300px;
+}
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,59 @@
+.JobCard {
+  position: relative;
+  margin: 32px auto;
+  background-color: white;
+  width: 500px;
+  height: 320px;
+  border-radius: 20px;
+  line-height: 2rem;
+  box-shadow: 10px 9px 10px -6px rgba(166, 166, 166, 0.08);
+  list-style: none;
+}
+
+.created-type {
+  width: 200px;
+  height: 40px;
+  margin: 16px auto;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.created-type-divider {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: $primary_grey;
+  font-size: 1rem;
+}
+
+.job-title {
+  text-decoration: none;
+  color: $primary_coal;
+  margin: 16px auto;
+  width: 450px;
+  font-size: 1.25rem;
+  font-weight: 700;
+
+  &::after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.job-location {
+  margin: 16px auto;
+  width: 300px;
+  color: $primary_red;
+  font-weight: 700;
+}
+
+.job-company {
+  margin: 16px auto;
+  width: 300px;
+}

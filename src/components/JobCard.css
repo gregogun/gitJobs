@@ -1,0 +1,21 @@
+.JobCard {
+  margin: 32px 8px;
+  background-color: #fdfdfd;
+  width: 440px;
+  height: 280px;
+  border-radius: 20px;
+}
+
+.created-type {
+  text-align: center;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  background-color: var(--primary-red);
+  width: 50%;
+}
+/*# sourceMappingURL=JobCard.css.map */

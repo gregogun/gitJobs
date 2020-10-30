@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,QAAQ,CAAC;EACP,MAAM,EAAE,QAAQ;EAChB,gBAAgB,EAAE,OAAO;EACzB,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;EACb,aAAa,EAAE,IAAI;CACpB;;AAED,AAAA,aAAa,CAAC;EACZ,UAAU,EAAE,MAAM;EAClB,MAAM,EAAE,IAAI;EACZ,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,YAAY;EAC7B,gBAAgB,EAAE,kBAAkB;EACpC,KAAK,EAAE,GAAG;CACX",
+    "sources": [
+        "JobCard.scss"
+    ],
+    "names": [],
+    "file": "JobCard.css"
+}

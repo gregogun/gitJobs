@@ -1,0 +1,33 @@
+.JobBoard {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 90%;
+}
+
+.load-button {
+  cursor: pointer;
+  flex-basis: 20%;
+  height: 32px;
+  width: 120px;
+  margin: 16px auto;
+}
+
+h2 {
+  margin: auto;
+}
+
+.outer-card {
+  margin: 16px auto;
+  display: grid;
+  place-items: center;
+  width: 470px;
+  height: 360px;
+}
+
+.showing-jobs {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 16px;
+}
