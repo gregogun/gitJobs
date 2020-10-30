@@ -9,7 +9,6 @@ const useFetch = () => {
   const [descState, setDescState] = useState("");
   const [locState, setLocState] = useState("");
   const [isFullState, setIsFullState] = useState("");
-  // const [trigger, setTrigger] = useState(false);
 
   const getIds = () => {
     // make a dictionary of ids -> indexes in data
@@ -18,7 +17,7 @@ const useFetch = () => {
       ids[info["id"]] = i;
     });
     setIds(ids);
-    console.log(ids);
+    // console.log(ids);
   };
 
   let urlCopy = url;
