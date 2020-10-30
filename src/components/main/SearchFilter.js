@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../../styles/index.css";
 
 const SearchFilter = ({ onSearch }) => {
   const [location, setLocation] = useState("");
@@ -47,7 +48,7 @@ const SearchFilter = ({ onSearch }) => {
         />
         <input
           type="checkbox"
-          checked={checked}
+          defaultChecked={checked}
           onChange={(e) => handleChecked(e)}
           onClick={() => setIsFullTimeOnly(isFullTimeOnly ? "on" : "")}
         />
