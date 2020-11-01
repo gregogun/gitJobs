@@ -1,4 +1,5 @@
 import React from "react";
+import JobLogos from "./JobLogos";
 import "../styles/index.css";
 
 const JobCard = ({
@@ -9,24 +10,43 @@ const JobCard = ({
   company,
   location,
   handleClick,
-  company_logo,
   setJobIndex,
+  setLogoName,
 }) => {
   const handleOpen = () => {
     handleClick();
     setJobIndex(id);
+    setLogoName(logo[random]);
   };
+
+  const shuffle = (array) => {
+    let counter = array.length;
+    let temp;
+    let index;
+
+    if (counter > 0) {
+      index = Math.floor(Math.random() * counter);
+      counter--;
+      temp = array[counter];
+      array[counter] = array[index];
+      array[index] = temp;
+    }
+
+    return index;
+  };
+
+  const random = shuffle(JobLogos);
 
   const created = created_at.slice(4, 10);
   const alt = `${company} company logo`;
 
+  const logo = JobLogos.map((logo) => logo.name);
+
   return (
     <li className="JobCard">
-      <img
-        src={company_logo}
-        alt={alt}
-        style={{ width: 64, height: 64, objectFit: "cover" }}
-      />
+      <div className="job-logo-wrapper">
+        <img src={logo[random]} alt={alt} className="job-logo" />
+      </div>
       <div className="created-type">
         <p>{created}</p>
         <div className="created-type-divider"></div>

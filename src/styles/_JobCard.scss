@@ -10,6 +10,22 @@
   list-style: none;
 }
 
+.job-logo-wrapper {
+  display: grid;
+  place-items: center;
+  margin: 16px auto;
+  width: 64px;
+  height: 64px;
+  border-radius: 4px;
+  background-color: $primary_coal;
+}
+
+.job-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+}
+
 .created-type {
   width: 200px;
   height: 40px;

@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 const Button = styled.button`
-  background-color: #f31e1e;
+  background-color: #ce4747;
   color: white;
   font-weight: 700;
+  font-size: 0.9rem;
   cursor: pointer;
   flex-basis: 20%;
   margin: 16px;
@@ -14,7 +15,7 @@ const Button = styled.button`
   transition-duration: 250ms;
   &:hover {
     transition-duration: 250ms;
-    background-color: #ce3f3f;
+    background-color: #cb6c6c;
   }
 `;
 

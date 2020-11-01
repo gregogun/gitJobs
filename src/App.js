@@ -1,7 +1,8 @@
 import React from "react";
-import "./styles/index.css";
-import styled, { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import JobBoard from "./components/JobBoard";
+import appLogo from "./assets/gitjobs_logo.svg";
+import "./styles/index.css";
 
 const theme = {
   primary_red: "#f31e1e",
@@ -10,25 +11,30 @@ const theme = {
   primary_coal: "#303030",
 };
 
-function App() {
-  const handleRefresh = () => {
-    window.location.reload(false);
-  };
+const handleRefresh = () => {
+  window.location.reload(false);
+};
 
+function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
         <header>
-          <h1 onClick={handleRefresh} style={{ cursor: "pointer" }}>
-            gitjobs
-          </h1>
+          <div className="app-logo">
+            <img
+              src={appLogo}
+              alt="The gitjobs site logo"
+              className="cat-logo"
+            />
+            <h1 onClick={handleRefresh} style={{ cursor: "pointer" }}>
+              gitjobs
+            </h1>
+          </div>
         </header>
         <main>
           <JobBoard />
         </main>
-        <footer>
-          Made with <span>🤍</span> by Greg Ogun
-        </footer>
+        <footer>Made by Greg Ogun</footer>
       </div>
     </ThemeProvider>
   );

@@ -1,30 +1,20 @@
 import React from "react";
 import MainDetails from "./MainDetails";
 import TitleDetails from "./TitleDetails";
+import { MdKeyboardBackspace } from "react-icons/md";
 import "../styles/index.css";
 
-const JobDetails = ({ index, handleShow, job }) => {
+const JobDetails = ({ index, handleShow, job, logo }) => {
   const handleClick = () => {
     handleShow(job.id);
   };
 
   return (
-    <div className="JobDetails">
-      <TitleDetails {...job} />
+    <>
+      <MdKeyboardBackspace className="back-icon" onClick={handleClick} />
+      <TitleDetails {...job} logo={logo} />
       <MainDetails {...job} />
-      <p
-        onClick={handleClick}
-        style={{ color: "lightseagreen", cursor: "pointer" }}
-      >
-        GO BACK?
-      </p>
-      <p
-        onClick={() => handleShow(index)}
-        style={{ color: "skyblue", cursor: "pointer" }}
-      >
-        NEXT
-      </p>
-    </div>
+    </>
   );
 };
 

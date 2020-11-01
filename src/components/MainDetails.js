@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/index.css";
+import Button from "../styled_comps/Button";
 
 const MainDetails = ({
   created_at,
@@ -14,11 +15,19 @@ const MainDetails = ({
 
   return (
     <div className="MainDetails">
-      <p>{created}</p>
-      <p>{type}</p>
-      <p>{title}</p>
-      <p>{location}</p>
-      <p>{description.replace(/<\/?[^>]+>/gi, "")}</p>
+      <div className="created-type">
+        <p>{created}</p>
+        <div className="created-type-divider"></div>
+        <p> {type}</p>
+      </div>
+      <p className="job-title">{title}</p>
+      <p className="job-location">{location}</p>
+      <p className="job-description">
+        {description.replace(/<\/?[^>]+>/gi, "")}
+      </p>
+      <a href={url} target="_blank" rel="noopener noreferrer">
+        <Button>Apply Now</Button>
+      </a>
     </div>
   );
 };

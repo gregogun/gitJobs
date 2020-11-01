@@ -3,6 +3,7 @@ import JobCard from "./JobCard";
 import useFetch from "../hooks/useFetch";
 import SearchFilter from "./SearchFilter";
 import JobDetails from "./JobDetails";
+import JobLogos from "./JobLogos";
 import Button from "../styled_comps/Button";
 import "../styles/index.css";
 
@@ -10,6 +11,25 @@ const JobBoard = () => {
   const { jobs, ids, isLoading, queryJobs, loadMore } = useFetch();
   const [modal, setModal] = useState(false);
   const [jobIndex, setJobIndex] = useState();
+  const [logoName, setLogoName] = useState();
+
+  const shuffle = (array) => {
+    let counter = array.length;
+    let temp;
+    let index;
+
+    if (counter > 0) {
+      index = Math.floor(Math.random() * counter);
+      counter--;
+      temp = array[counter];
+      array[counter] = array[index];
+      array[index] = temp;
+    }
+
+    return index;
+  };
+
+  const random = shuffle(JobLogos);
 
   const handleClick = () => {
     setModal(true);
@@ -31,11 +51,13 @@ const JobBoard = () => {
     if (modal) {
       if (jobs) {
         const jobsId = jobs.filter((job) => job.id === jobIndex);
-        // above is for real data
+        const logo = JobLogos.filter((item) => item.name === logoName);
         return (
-          <div>
+          <div className="JobDetails">
             {
               <JobDetails
+                random={random}
+                logo={logo[0]}
                 index={jobIndex}
                 handleShow={handleShow}
                 job={jobsId[0]}
@@ -51,14 +73,14 @@ const JobBoard = () => {
     return (
       <>
         <SearchFilter onSearch={queryJobs} />
-        {jobs && <p className="showing-jobs">Showing {jobs.length} jobs</p>}
+        {jobs && !isLoading ? (
+          <p className="showing-jobs">Showing {jobs.length} jobs</p>
+        ) : (
+          <p className="showing-jobs">Loading...</p>
+        )}
         {!isLoading && jobs.length >= 50 && (
-          // <button className="load-button" onClick={loadMore}>
-          //   Load More
-          // </button>
           <Button onClick={loadMore}>Load More</Button>
         )}
-        {isLoading && <p>Loading...</p>}
         {!isLoading && jobs.length === 0 && (
           <p>
             We can't find any jobs to match your search. Please enter a
@@ -66,25 +88,16 @@ const JobBoard = () => {
           </p>
         )}
         <ul className="JobBoard">
-          {
-            jobs &&
-              jobs.map((item) => (
-                <JobCard
-                  key={item.id}
-                  {...item}
-                  handleClick={handleClick}
-                  RenderModal={RenderModal}
-                  jobIndex={jobIndex}
-                  setJobIndex={setJobIndex}
-                />
-              ))
-            // <h2>
-            //   Sorry there an issue which means we can't find any jobs for you{" "}
-            //   <span role="img" aria-label="sad">
-            //     😔
-            //   </span>
-            // </h2>
-          }
+          {jobs &&
+            jobs.map((item) => (
+              <JobCard
+                key={item.id}
+                {...item}
+                setLogoName={setLogoName}
+                handleClick={handleClick}
+                setJobIndex={setJobIndex}
+              />
+            ))}
         </ul>
         {!isLoading && jobs.length >= 50 && (
           <Button onClick={loadMore}>Load More</Button>
