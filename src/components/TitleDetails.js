@@ -14,9 +14,9 @@ const TitleDetails = ({ company, company_url, company_logo, logo }) => {
         <h2>{company}</h2>
       </div>
       <div className="company-site-button-wrapper">
-        <a href={company_url} target="_blank" rel="noopener noreferrer">
+        <form action={company_url} target="_blank" method="get">
           <Button>Company Site</Button>
-        </a>
+        </form>
       </div>
     </div>
   );

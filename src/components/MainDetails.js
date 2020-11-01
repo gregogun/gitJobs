@@ -25,9 +25,9 @@ const MainDetails = ({
       <p className="job-description">
         {description.replace(/<\/?[^>]+>/gi, "")}
       </p>
-      <a href={url} target="_blank" rel="noopener noreferrer">
+      <form action={url} target="_blank" method="get">
         <Button>Apply Now</Button>
-      </a>
+      </form>
     </div>
   );
 };
