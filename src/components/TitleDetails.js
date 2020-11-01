@@ -13,8 +13,8 @@ const TitleDetails = ({ company, company_url, company_logo, logo }) => {
       <div className="company-title-wrapper">
         <h2>{company}</h2>
       </div>
-      <div class="company-site-button-wrapper">
-        <a href={company_url}>
+      <div className="company-site-button-wrapper">
+        <a href={company_url} target="_blank" rel="noopener noreferrer">
           <Button>Company Site</Button>
         </a>
       </div>

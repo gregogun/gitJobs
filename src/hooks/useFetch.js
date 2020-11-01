@@ -17,7 +17,6 @@ const useFetch = () => {
       ids[info["id"]] = i;
     });
     setIds(ids);
-    // console.log(ids);
   };
 
   let urlCopy = url;
@@ -27,8 +26,6 @@ const useFetch = () => {
 
   const fetchData = () => {
     urlCopy += `description=${desc}&location=${loc}&full_time=${isFull}&page=${page}`;
-
-    console.log("fetchData is here", urlCopy);
 
     setIsLoading(true);
 
@@ -58,8 +55,6 @@ const useFetch = () => {
     desc = description;
     loc = location;
     isFull = isFullTimeOnly;
-
-    // console.log(desc);
 
     setDescState(desc);
     setLocState(loc);
@@ -117,14 +112,11 @@ const useFetch = () => {
         if (data.length > 0) {
           setJobs(jobs.concat(data));
         }
-        // console.log("new jobs were added", data);
       }, getIds)
       .catch((e) => console.log(e));
   };
 
   useEffect(fetchData, []);
-
-  // useEffect(getIds, [trigger]);
 
   return { jobs, ids, isLoading, queryJobs, fetchData, loadMore };
 };

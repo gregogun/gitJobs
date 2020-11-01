@@ -53,7 +53,7 @@ const JobCard = ({
         <p> {type}</p>
       </div>
       <h2 onClick={handleOpen}>
-        <a href="#" className="job-title">
+        <a href="#0" className="job-title">
           {title}
         </a>
       </h2>

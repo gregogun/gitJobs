@@ -1,4 +1,3 @@
-import React from "react";
 import noun_drop from "../assets/logos/noun_drop.svg";
 import noun_eagle from "../assets/logos/noun_eagle.svg";
 import noun_flower from "../assets/logos/noun_flower.svg";
