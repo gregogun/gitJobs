@@ -1,68 +1,73 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# gitjobs 
 
-In the project directory, you can run:
+
+
+## Overview
+
+This app was created as a submission for the Chingu Voyage 25 solo pre-solo project. 
+
+Pulling data from the [Github Jobs API](https://jobs.github.com/api), it's used to create a job with re-imagined design and functionality.
+
+**LIVE LINK** - https://git-jobs-woad.vercel.app/
+
+## Features
+
+* After pulling the data from the Github Jobs API, this is then displayed to the user in a list of cards. 
+* Users are able to see a maximum of 50 jobs at a time with option to load more via a button and are also notified how many jobs are currently displayed.
+* Upon clicking on the job title, users can view the job description, check out the company site and then hit then 'Apply Now' button to be taken to the link on Github Jobs where they can apply for the role.
+* Users can also search for jobs based on the title, company, location and/or whether they are full time only.
+* After loading the first batch of jobs upon loading the site, it's ensured that each query sent to the API endpoints only fetches the necessary data from the API, which helps to boost performance to promote a more user-friendly experience. 
+
+
+
+## Running the project
+
+**Live version**:
+
+ [**gitjobs**](https://git-jobs-woad.vercel.app/)
+
+
+
+* From the repo:
+
+### ` git clone`
+
+Clone the project locally.
+
+
+
+* On the command line, you can run:
+
+### `npm install`
+
+Installs dependencies required for the project to run.
+
+
 
 ### `npm start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Dev Dependencies 
 
-### `npm run build`
+* [Prettier](https://prettier.io/)
+* [ESLint](https://eslint.org/)
+* [React](https://reactjs.org/)
+* [React-DOM](https://www.npmjs.com/package/react-dom)
+* [Sass](https://sass-lang.com/)
+* [Styled Components](https://styled-components.com/)
+* [React Icons](https://react-icons.github.io/react-icons/)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Features to be added
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* Theme switcher that changes with users default browser settings
+* Add colours to the job icons to make the UI more engaging
+* Enhance accessibility
+* Add more interaction (hover, focus states)
